@@ -1,0 +1,69 @@
+<!--By Tongchai Watanachatwong 
+	Code 58160661
+	5/2/61-->
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function SearchWord(){
+		
+		var search_word = document.getElementById("search").value;
+ 		var word_input = document.getElementById("textarea").value;
+ 		var count = 0;
+ 		var i=0;
+ 		var low_char_input = "";
+ 		var low_case_search = "";
+ 		var splitString = "";
+		if(document.getElementById("Yes").checked){
+ 			splitString = word_input.split(" ");
+ 			while(splitString[i] != null){
+ 				if(splitString[i] == search_word){
+					count++;
+ 				}
+ 				i++;
+ 			}
+ 			document.getElementById("show_res").innerHTML = " ";
+ 			document.getElementById("show_res").innerHTML = "Result for search : "+count;
+ 		}else{
+			low_char_input = word_input.toLowerCase();
+			low_case_search = search_word.toLowerCase();
+			splitString = low_char_input.split(" ");
+			while(splitString[i] != null){
+				if(splitString[i] == low_case_search){
+					count++;
+				}
+				i++;
+			}
+			document.getElementById("show_res").innerHTML = " ";
+			document.getElementById("show_res").innerHTML = "Result for search : "+count;
+		}
+	}		
+</script>
+
+</head>
+<body>
+<center>
+	<h1>EX2 - Search String Non Sensitive Case</h1>
+	Text input :	
+	<textarea id ="textarea"></textarea>
+	<br><br>
+	
+	Sensitive case : 
+	<input type="radio" name="sensitive" id ="Yes" checked> Yes
+	<input type="radio" name="sensitive" id ="No"> No
+	<br><br>
+	
+	search : 
+	<input type="text" id ="search">
+	<br><br>
+	
+	<button type="button" onclick="SearchWord()">search</button>
+	<br><br>
+	
+	
+	<div id="show_res"></div>
+	
+
+</center>
+</body>
+</html>
