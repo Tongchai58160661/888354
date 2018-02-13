@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	var random1 = 0;
+	var random2 = 0;
+
+	$(document).ready(function() {
+		$("#random").click(function() {
+			var max = 999;
+			var min = -999;
+			random1 = Math.floor(Math.random() * (max - min + 1) + min);
+			random2 = Math.floor(Math.random() * (max - min + 1) + min);
+			$('#span1').html(random1);
+			$('#span2').html(random2);
+		});
+	
+	
+	$("#sendAns").click(function() {
+		var result = $('#answer').val();		
+		var show = ""; 
+		var sum = random1+random2;
+		
+		if(result == sum){			
+            $('#show_res').html("<span style='color : green'>That correct</span>");
+		}else{			
+            $('#show_res').html("<span style='color : red'>That wrong. The answer is</span>");
+		}
+		
+	});
+	});
+	
+</script>
+
+<head>
+</head>
+
+<body>
+	<center>
+	<h1>EX - Random Number for Answer</h1>
+	
+	<button id = "random">Random Number</button>
+	<br><br>
+	
+	<div><span id="span1"></span> + <span id="span2"></span> = <input type="text" id="answer"></div>
+	<br>	
+	
+	<button id = "sendAns">Send Answer</button>
+	<br><br>
+	
+	<div id = "show_res"></div>
+	</center>
+</body>
+
+</html>
